@@ -1,6 +1,11 @@
 .main-container {
-    background-image: url(C:sem2/projects/images/img.png);
-}
+    background-image: url("https://unsplash.com/photos/wprIrMrvm0w");
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
 
 .content {
     background: rgb(255 255 255 / 15%);
@@ -16,7 +21,7 @@
     justify-content: center;
     min-height: 308px;
     box-sizing: border-box;
-}
+  }
 
 .dropdowns,.IMDBRating,.Genre {
     min-width: 288px;
@@ -24,17 +29,19 @@
     height: 50px;
     width: 400px;
     display: block;
-
-}
+  }
 
 .movie {
     border-radius: 10px;
     width: 30%;
-}
+    box-shadow: 7px 11px 19px 0 rgba(0,0,0,0.35);
+  }
 
 .genre {
     margin-bottom: -10px;
-}
+    font-size: larger;
+  }
+
 label {
     display: flex;
     flex-direction: row;
@@ -43,6 +50,7 @@ label {
     width: 400px;
     line-height: 0px;
     margin-bottom: 0px;
+    font-size: large;
   }
 
 .spin {
@@ -78,7 +86,7 @@ label {
     height: 40px;
     padding: 12px 40px;
     font-weight: 500;
-}
+  }
 
 .dropdown {
     position: relative;
@@ -174,4 +182,7 @@ label {
   .result {
     margin-right: 30%;
     margin-top: 15px;
+    color: black;
+    font-size: x-large;
+    font-family: serif;
   }
