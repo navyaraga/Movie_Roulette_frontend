@@ -2,17 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar'
 import { Nav,NavDropdown,Button } from 'react-bootstrap';
-import "./MainComponent.css";
-import {
-    Card, CardImg, CardBody,
-    CardTitle, CardSubtitle
-} from 'reactstrap';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./AboutUs.css";
-import { Link } from "react-router-dom";
-
-const fetchMovies = "https://api.themoviedb.org/3/movie/popular?api_key=3b3b5921e61fbc17bc91da5cf114c845&language=en-US&page=1";
-const baseURL = "http://image.tmdb.org/t/p/w500";
+import "./MainComponent.css"
 
 class Main extends React.Component {
 
@@ -23,7 +13,7 @@ class Main extends React.Component {
             data: "",
             movieName: "",
             imdb_score: "",
-            movies: []
+            errorMessage: "nav"
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -48,20 +38,7 @@ class Main extends React.Component {
         .then(response => response.json())
         .then(data => this.setState({
             movieName: data.movie_title}))
-
-    }
-
-    componentDidMount() {
-        fetch(fetchMovies)
-            .then(response => response.json())
-            .then((data) => {
-                let movies = data.results;
-                movies.map((movie) => { 
-                    movie.poster_path = baseURL + movie.poster_path;
-                    return movie; 
-                }) 
-                this.setState({ movies: movies, isLoading: false })
-            })
+        .catch(err => {console.log(err)})
     }
 
     handleInputChange(event) {
@@ -83,51 +60,36 @@ class Main extends React.Component {
         event.preventDefault()
     }
     render() {
-        
-        const myList = this.state.movies.map((mvi, index) => {
-            return (
-                <Card key={index} className="card-container">
-                    <CardImg src={mvi.poster_path} alt={mvi.title} />
-                    <CardBody>
-                        <CardTitle> {mvi.title}</CardTitle>
-                        <CardSubtitle><b>Ratings :</b> {mvi.vote_average}</CardSubtitle>
-                        {/* <CardSubtitle> <b>rating(s):</b> {mvi.vote_avergae.join(",")}</CardSubtitle> */}
-                    </CardBody>
-                    {/* <Link to={`/home/${book.isbn}`} className="know-more"> <Button outline color="secondary">know more</Button> </Link> */}
-                </Card>
-            )
-        })
-
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="main-container">
                     <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="/">Movie Roulette</Navbar.Brand>
+                    <Navbar.Brand href="#home">Movie Roulette</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/AboutUs">About Us</Nav.Link>
-                        <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#aboutus">About Us</Nav.Link>
+                        <Nav.Link href="#contactus">Contact Us</Nav.Link>
                         </Nav>
-                        <input id="search" type="text" placeholder="Search" className=" mr-sm-2" />
+                        <Button variant="dark">Search</Button>
                     </Navbar.Collapse>
                     </Navbar>
                     <div className="content">
                     {this.state.data}
                     <div className="dropdowns">
                         <div className="IMDBRating">
-                            <label className="mvi" id="mvidropdown">Movie Ratings </label>
-                            <select className="dropdownoptions" value={this.state.imdb_score} onChange={this.handleChangeIMDB}>
+                            <label className="genre">Movie Ratings </label>
+                            <select className="movie" value={this.state.imdb_score} onChange={this.handleChangeIMDB}>
                                 <option value="<7">less than 7</option>
                                 <option value="7< - <8">7-8</option>
                                 <option value="8< - <9">8-9</option>
                                 <option value="9< - <10">9-10</option>
                             </select>
                         </div>
-                    <div className="Genre" >
-                        <label className="genre" id="genredropdown">  Movie Genre </label>
-                        <select className="dropdownoptions" value={this.state.genres} onChange={this.handleChangeGenre}>
+                    <div className="Genre">
+                        <label className="genre"> Genre </label>
+                        <select className="movie" value={this.state.genres} onChange={this.handleChangeGenre}>
                             <option value="Action">Action</option>
                             <option value="Adventure">Adventure</option>
                             <option value="Children">Children</option>
@@ -147,14 +109,10 @@ class Main extends React.Component {
                             <option value="Western">Western</option>
                         </select>
                     </div>
-                    <div className="spinresult">
-                        <button className="spin" onClick={this.handleHiClick}>Spin</button>
-                        <div className="result">{this.state.movieName}</div>
-                    </div>
-                    </div>
-                        <h3>Popular Movies</h3>
-                    <div className="card-list-container">
-                        {myList}
+                    <button className="spin" onClick={this.handleHiClick}>  Spin  </button>
+                    <div className="result">{this.state.movieName}</div>
+                    {/* { this.state.errorMessage &&
+  <h3 className="error"> { this.state.errorMessage } </h3> } */}
                     </div>
                     </div>
                 </div>

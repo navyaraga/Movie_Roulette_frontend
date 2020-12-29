@@ -1,0 +1,28 @@
+#imgs {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-top: -65px;
+  width: 902px;
+  height: 300px;
+}
+h2 {
+  height: 215px;
+  margin-top: 10px;
+  line-height: 180px;
+  font-family: "Shrikhand", cursive;
+  font-size: 6.5em;
+  font-weight: 400;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.aboutdescription {
+  margin-bottom: 1rem;
+  font-family: "Shrikhand", cursive;
+  font-size: 27px;
+}
+h3 {
+  font-size: 2.25rem;
+  margin-top: 15px;
+}

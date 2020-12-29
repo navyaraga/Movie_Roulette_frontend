@@ -16,29 +16,30 @@
   bottom: 0;
   right: 0;
   overflow: auto;
+  font-family: cursive;
   background: linear-gradient(0deg, #84d0ed, #ff7373);
 }
 .bg-dark {
   background-color: #d15e1b00 !important;
 }
-.mvi {
-  margin-right: 10px;
-  font-size: x-large;
-}
+.mvi,
 .genre {
   margin-right: 10px;
-  font-size: x-large;
+  font-size: larger;
 }
 .navbar-dark .navbar-nav .nav-link {
   color: rgb(255 255 255);
+  font-family: cursive;
 }
 .dropdowns {
   font-size: large;
+  font-family: cursive;
 }
 .dropdownoptions,
 .spin {
   display: inline-block;
   font-weight: 400;
+  font-family: cursive;
   color: #403c49;
   text-align: center;
   vertical-align: middle;
@@ -58,8 +59,9 @@
   padding-bottom: 10px;
 }
 .result {
-  font-size: x-large;
-  color: darkslategrey;
+  color: #000000bf;
+  font-family: cursive;
+  font-size: 30px;
 }
 #search {
   color: white;
@@ -86,6 +88,22 @@
   justify-content: center;
 }
 .card-title {
+  font-family: cursive;
+  font-size: larger;
   font-weight: 500;
-  font-family: serif;
+}
+#search {
+  border-radius: 5px;
+  border: white;
+}
+h3 {
+  justify-content: flex-start;
+  margin-left: 60px;
+  display: flex;
+  color: aliceblue;
+  font-family: cursive;
+}
+b,
+strong {
+  font-weight: 200;
 }
