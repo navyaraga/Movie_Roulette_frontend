@@ -5,11 +5,18 @@ import Main from './components/MainComponent';
 
 function App() {
   return (
-    <div className="App">
-      < Main/>
-        <p>
-        </p>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/AboutUs">
+            <AboutUs/>
+          </Route>
+          <Route path="/ContactUs">
+            <ContactUs/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
