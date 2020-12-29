@@ -31,7 +31,7 @@ class Main extends React.Component {
         this.handleChangeIMDB = this.handleChangeIMDB.bind(this);
         this.handleChangeGenre = this.handleChangeGenre.bind(this);
     }
-
+    //sending movie genre & movie rating using fetch to backend & returns response which is movieName
     handleHiClick() {
         fetch('http://localhost:5000/selectmovie',{
             method: "POST",
@@ -50,7 +50,7 @@ class Main extends React.Component {
             movieName: data.movie_title}))
 
     }
-
+    //iterating movies using foreach loop & map function with movie object to display mvi images from an api
     componentDidMount() {
         fetch(fetchMovies)
             .then(response => response.json())
@@ -83,21 +83,20 @@ class Main extends React.Component {
         event.preventDefault()
     }
     render() {
-        
+        //using map function iterate movies & sending them to a constant
         const myList = this.state.movies.map((mvi, index) => {
             return (
+                //using card layout for displaying movies in a row
                 <Card key={index} className="card-container">
                     <CardImg src={mvi.poster_path} alt={mvi.title} />
                     <CardBody>
                         <CardTitle> {mvi.title}</CardTitle>
                         <CardSubtitle><b>Ratings :</b> {mvi.vote_average}</CardSubtitle>
-                        {/* <CardSubtitle> <b>rating(s):</b> {mvi.vote_avergae.join(",")}</CardSubtitle> */}
                     </CardBody>
-                    {/* <Link to={`/home/${book.isbn}`} className="know-more"> <Button outline color="secondary">know more</Button> </Link> */}
                 </Card>
             )
         })
-
+        // Navigating to about, contact pages using navlink which would be redirected from app.js router
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="main-container">
@@ -110,7 +109,7 @@ class Main extends React.Component {
                         <Nav.Link href="/AboutUs">About Us</Nav.Link>
                         <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
                         </Nav>
-                        <input id="search" type="text" placeholder="Search" className=" mr-sm-2" />
+                        <input id="search" type="text" placeholder="Search" className="mr-sm-2" />
                     </Navbar.Collapse>
                     </Navbar>
                     <div className="content">
@@ -125,37 +124,38 @@ class Main extends React.Component {
                                 <option value="9< - <10">9-10</option>
                             </select>
                         </div>
-                    <div className="Genre" >
-                        <label className="genre" id="genredropdown">  Movie Genre </label>
-                        <select className="dropdownoptions" value={this.state.genres} onChange={this.handleChangeGenre}>
-                            <option value="Action">Action</option>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Children">Children</option>
-                            <option value="Comedy">Comedy</option>
-                            <option value="Crime">Crime</option>
-                            <option value="Documentary">Documentary</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Family">Family</option>
-                            <option value="Fantasy">Fantasy</option>
-                            <option value="Horror">Horror</option>
-                            <option value="Musical">Musical</option>
-                            <option value="Mystery">Mystery</option>
-                            <option value="Romance">Romance</option>
-                            <option value="Sci-Fi">Sci-Fi</option>
-                            <option value="Thriller">Thriller</option>
-                            <option value="War">War</option>
-                            <option value="Western">Western</option>
-                        </select>
-                    </div>
-                    <div className="spinresult">
-                        <button className="spin" onClick={this.handleHiClick}>Spin</button>
-                        <div className="result">{this.state.movieName}</div>
-                    </div>
-                    </div>
+                        <div className="Genre" >
+                            <label className="genre" id="genredropdown">  Movie Genre </label>
+                            <select className="dropdownoptions" value={this.state.genres} onChange={this.handleChangeGenre}>
+                                <option value="Action">Action</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Children">Children</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Crime">Crime</option>
+                                <option value="Documentary">Documentary</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Family">Family</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Musical">Musical</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Sci-Fi">Sci-Fi</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="War">War</option>
+                                <option value="Western">Western</option>
+                            </select>
+                        </div>
+                        <div className="spinresult">
+                            <button className="spin" onClick={this.handleHiClick}>Spin</button>
+                            <div className="result">{this.state.movieName}</div>
+                        </div>
+                        </div>
                         <h3>Popular Movies</h3>
-                    <div className="card-list-container">
-                        {myList}
-                    </div>
+                        {/* using mylist object to display movies*/}
+                        <div className="card-list-container">
+                            {myList}
+                        </div>
                     </div>
                 </div>
             </form>
