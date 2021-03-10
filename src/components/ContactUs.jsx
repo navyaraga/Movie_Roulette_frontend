@@ -30,7 +30,9 @@ function ContactUs() {
         Phone no: +1-2145541887
         <br>
         </br>
-        info@movieroulette.com | http://www.movieroulette.com
+        info@movieroulette.com
+        <br></br>
+         http://www.movieroulette.com
     </p>
     </div>
     );

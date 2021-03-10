@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./AboutUs.css";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
 
 const fetchMovies = "https://api.themoviedb.org/3/movie/popular?api_key=3b3b5921e61fbc17bc91da5cf114c845&language=en-US&page=1";
 const baseURL = "http://image.tmdb.org/t/p/w500";

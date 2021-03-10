@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
-import { Nav,NavDropdown,Button } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Nav } from 'react-bootstrap';
 
 function AboutUs() {
     return (
@@ -30,7 +29,7 @@ function AboutUs() {
                         Each time when we click the spin button, website generates random movie.
                     </p>
                 </div>
-                </div>
+            </div>
         </div>
         </div>
     )

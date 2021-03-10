@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
   return (
     //routing the pages from home page
-    //using exact to load with home page on pageload 
+    //using exact to load with home page on pageload  
     <Router>
       <div className="App">
         <Switch>

@@ -5,8 +5,13 @@
   font-family: cursive;
 }
 p {
-  margin-top: 0;
+  margin-top: 50px;
   margin-bottom: 1rem;
   font-size: 21px;
   font-family: cursive;
+}
+
+#contact {
+  display: flex;
+  justify-content: center;
 }
