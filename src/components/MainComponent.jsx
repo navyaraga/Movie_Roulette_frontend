@@ -35,7 +35,7 @@ class Main extends React.Component {
     handleHiClick() {
         fetch('https://movieroulette-1.herokuapp.com/selectmovie',{
             method: "POST",
-            headers: {
+            headers: { 
                 'Content-Type' : 'application/json'
             },
             body: JSON.stringify(
