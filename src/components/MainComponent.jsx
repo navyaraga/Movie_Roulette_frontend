@@ -33,7 +33,7 @@ class Main extends React.Component {
     }
     //sending movie genre & movie rating using fetch to backend & returns response which is movieName
     handleHiClick() {
-        fetch('http://localhost:5000/selectmovie',{
+        fetch('https://movieroulette-1.herokuapp.com/selectmovie',{
             method: "POST",
             headers: {
                 'Content-Type' : 'application/json'
