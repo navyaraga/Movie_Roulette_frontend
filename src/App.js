@@ -1,8 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Main from './components/MainComponent';
-import { Link } from 'react-router-dom';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';

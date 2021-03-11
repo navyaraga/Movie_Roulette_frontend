@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
-import { Nav,NavDropdown,Button } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Nav } from 'react-bootstrap';
 import "./ContactUs.css";
 
 function ContactUs() {
