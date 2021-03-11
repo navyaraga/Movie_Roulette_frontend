@@ -44,7 +44,7 @@ class Main extends React.Component {
                     imdb_score: this.state.imdb_score
                 }
             )
-        })
+        })  
         .then(response => response.json())
         .then(data => this.setState({
             movieName: data.movie_title}))
